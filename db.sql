@@ -1,0 +1,14 @@
+INSERT INTO "book" VALUES(1,'Introduction to Algorithms');
+INSERT INTO "book" VALUES(2,'Code: The Hidden Language of Computer Hardware and Software');
+INSERT INTO "book" VALUES(3,'Programming Windows(Microsoft Programming Series)');
+INSERT INTO "author" VALUES(1,'Thomas H. Cormen');
+INSERT INTO "author" VALUES(2,'Charles E. Leiserson');
+INSERT INTO "author" VALUES(3,'Ronald L. Rivest');
+INSERT INTO "author" VALUES(4,'Clifford Stein');
+INSERT INTO "author" VALUES(5,'Charles Petzold');
+INSERT INTO "book_author" VALUES(1,1);
+INSERT INTO "book_author" VALUES(1,2);
+INSERT INTO "book_author" VALUES(1,3);
+INSERT INTO "book_author" VALUES(1,4);
+INSERT INTO "book_author" VALUES(2,5);
+INSERT INTO "book_author" VALUES(3,5);

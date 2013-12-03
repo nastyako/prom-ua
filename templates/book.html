@@ -1,0 +1,14 @@
+<div class="book">
+    <h3>
+        {{ book.title }}
+        <a href="/book/{{ book.id }}/edit" class="btn btn-warning">edit</a>
+        <a href="/book/{{ book.id }}/delete" class="btn btn-danger" onclick="return confirm('Are you sure?');">delete</a>
+    </h3>
+
+    {% if book.authors %}
+        <h4>Authors:</h4>
+        {% for author in book.authors %}
+            <p>{{ author.name }}</p>
+        {% endfor %}
+    {% endif %}
+</div>

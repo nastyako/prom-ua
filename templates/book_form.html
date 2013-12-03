@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action={{ action }} class="form-horizontal">
+
+    <div class="control-group">
+        <label class="control-label" for="Title">{{ form.title.label }}</label>
+        <div class="controls">
+            {{ form.title }}
+            {% if form.title.errors %}
+                <ul class="errors">{% for error in form.title.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="Author">{{ form.author.label }}</label>
+        <div class="controls">
+            {{ form.author }}
+            {% if form.author.errors %}
+                <ul class="errors">{% for error in form.author.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn">{% if submit_text %}{{ submit_text }}{% else %}Add{% endif %}</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
