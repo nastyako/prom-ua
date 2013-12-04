@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% if if_administrator %}
     <form method="POST" action="{{ action }}" class="form-horizontal">
     <div class="control-group">
         <label class="control-label" for="Name">{{ form.name.label }}</label>
@@ -19,5 +19,9 @@
         </div>
     </div>
 </form>
-
+{% else %}
+        {% if session.user_id %}
+            <p>You don't have enough rights for changing content.
+        {% endif %}
+{% endif %}
 {% endblock %}

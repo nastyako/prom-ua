@@ -153,12 +153,18 @@ def delete_author(author_id):
 def search_results():
     q = request.values['q']
     books = session.query(Book).filter(or_(Book.title.like("%"+q+"%"), Book.authors.any(Author.name.like("%"+q+"%"))))
-    return render_template('search_results.html',
+    if isinstance(current_user._get_current_object(), AnonymousUserMixin):
+        return render_template('search_results.html',
+                           books=books,
+                           user_name=None,
+                           user_picture=None,
+                           if_administrator=verify_administrator())
+    else:
+        return render_template('search_results.html',
                            books=books,
                            user_name=current_user.name,
                            user_picture=current_user.picture,
                            if_administrator=verify_administrator())
-
 
 def fill_db():
     Book.metadata.create_all(engine)
